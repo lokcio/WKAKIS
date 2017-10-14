@@ -10,8 +10,7 @@ var gulp = require('gulp'),
     phpcs = require('gulp-phpcs'),
     del = require('del'),
     size = require('gulp-size'),
-    jshint = require('gulp-jshint'),
-    GJSDuck = require("gulp-jsduck");
+    jshint = require('gulp-jshint');
 
 gulp.task('cleancache', function() {
   return cache.clearAll(done);
