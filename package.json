@@ -1,0 +1,44 @@
+{
+  "name": "wkakis",
+  "version": "0.0.1",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lokcio/wkakis.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/lokcio/wkakis/issues"
+  },
+  "homepage": "https://github.com/lokcio/wkakis#readme",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-copy": "^1.0.1",
+    "gulp-esdoc": "^0.4.1",
+    "gulp-html": "^0.4.7",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-jsduck": "^1.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-phpcs": "^2.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-shell": "^0.6.3",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jsduck": "^1.1.2",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1",
+    "minami": "^1.2.3",
+    "run-sequence": "^2.2.0",
+    "webpack-stream": "^4.0.0"
+  }
+}

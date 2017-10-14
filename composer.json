@@ -1,0 +1,11 @@
+{
+    "name": "lokcio/wkakis",
+    "type": "project",
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "^2.9"
+    },
+    "license": "BSD-2",
+    "require": {
+        "squizlabs/php_codesniffer": "^3.1"
+    }
+}
