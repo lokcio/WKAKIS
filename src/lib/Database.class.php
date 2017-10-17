@@ -72,7 +72,7 @@ class Database
     public function prepareAndExecute($query, $params = array())
     {
         try {
-            if(count($params)) {
+            if (count($params)) {
                 $stmt = $this->PDO->prepare($query);
                 $stmt->execute($params);
             } else {
@@ -175,7 +175,7 @@ class Database
     public function update($options, $params = array())
     {
         $query = 'UPDATE '.$options['update'].' SET ';
-        $query .= implode(', ', array_map(function($key) {
+        $query .= implode(', ', array_map(function ($key) {
             return "`$key`=?";
         }, array_keys($options['set'])));
         $queryCompletions = array(
@@ -237,12 +237,13 @@ class Database
      *     + **string** - $config['values']-  Tablica asocjacyjna z wprowadzanymi polami.
      * @return PDOStatement    Obiekt PDOStatement dla późniejszego użytku.
      */
-    public function insert($options) {
+    public function insert($options)
+    {
         $query = 'INSERT INTO '.$options['into'];
-        $query .= '('.implode(', ', array_map(function($key) {
+        $query .= '('.implode(', ', array_map(function ($key) {
             return "`$key`";
         }, array_keys($options['values']))).')';
-        $query.= 'VALUES ('.implode(', ', array_map(function($key) {
+        $query.= 'VALUES ('.implode(', ', array_map(function ($key) {
             return '?';
         }, array_values($options['values']))).')';
 
