@@ -24,7 +24,7 @@ gulp.task('clean:dist', function() {
 gulp.task('clean:docs/phpdoc', function() {
   return del.sync('docs/phpdoc');
 });
-gulp.task('phpdocumentator', shell.task(['vendor/bin/phpdoc -d . -t docs/phpdoc -i vendor/,node_modules/,server.php']));
+gulp.task('phpdocumentator', shell.task(['vendor/bin/phpdoc -d . -t docs/phpdoc -i vendor/,node_modules/,server.php,dist/,wkakis.config.php']));
 gulp.task('phpdoc', function() {
   runSequence('clean:docs/phpdoc', 'phpdocumentator');
 });

@@ -1,5 +1,8 @@
+*.config.php
+!*.config.example.php
 package-lock.json
 dist/*
+
 
 # Logs
 logs

@@ -1,0 +1,11 @@
+<?php
+$config = array(
+    'db'=> array(
+        'host'=> 'localhost',
+        'port'=> 3306,
+        'dbname'=> 'databasename',
+        'charset'=> 'utf8',
+        'user'=> 'root',
+        'password'=> 'secret'
+    )
+);

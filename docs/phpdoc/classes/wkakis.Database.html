@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/wkakis.html">\wkakis</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-388721214"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-388721214" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2088782765"></a>
+                                <a href="../namespaces/wkakis.html" style="margin-left: 30px; padding-left: 0">wkakis</a>
+            </div>
+            <div id="namespace-2088782765" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/wkakis.Database.html">Database</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/wkakis.html">\wkakis</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\wkakis</small>Database</h1>
+                    <p><em>Obsługa kontrolera bazy danych.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/wkakis.Database.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_query" class="">query()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_queryAndFetch" class="">queryAndFetch()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_prepareAndExecute" class="">prepareAndExecute()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_select" class="">select()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_update" class="">update()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_delete" class="">delete()</a><br />
+                                                                    <a href="../classes/wkakis.Database.html#method_insert" class="">insert()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/wkakis.Database.html#method_completeQuery" class="">completeQuery()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/wkakis.Database.html#property_PDO" class="">$PDO</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/lib.Database.class.html"><div class="path-wrapper">lib/Database.class.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\wkakis\Database</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_PDO" name="property_PDO" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$PDO</h3>
+                <pre class="signature">$PDO : \PDO</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \PDO
+                &mdash; Uchwyt dla sterownika PDO.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(array&lt;mixed,string&gt;  <span class="argument">$config = array()</span>) </pre>
+                <p><em>Konstruktor bazy danych, przyjmuje konfiguracje połączenia z pliku wkakis.config.php.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,string&gt;</td>
+                                <td>$config </td>
+                                <td><p>Konfiguracja bazy danych.</p>
+<ul>
+<li><strong>string</strong> - $config['host']-  Adres IP/domena serwera bazy danych.</li>
+<li><strong>string</strong> - $config['port']-  Port serwera bazy danych. Domyślnie 3306.</li>
+<li><strong>string</strong> - $config['dbname'] -  Nazwa bazy danych.</li>
+<li><strong>string</strong> - $config['charset'] -  Kodowanie znaków, najlepiej utf8.</li>
+<li><strong>string</strong> - $config['user'] -  Nazwa użytkownika.</li>
+<li><strong>string</strong> - $config['password'] - Hasło.</li>
+</ul></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_query" name="method_query" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">query()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">query(string  <span class="argument">$query = &#039;&#039;</span>) : \wkakis\PDOStatement</pre>
+                <p><em>Wykonuje surowe zapytanie do bazy danych (brak obsługi &#039;param binding&#039;).</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$query </td>
+                                <td><p>Zapytanie SQL.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \wkakis\PDOStatement
+                                            &mdash; <p>Obiekt klasy PDOStatement.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryAndFetch" name="method_queryAndFetch" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryAndFetch()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryAndFetch(string  <span class="argument">$query = &#039;&#039;</span>) : array</pre>
+                <p><em>Wykonuje surowe zapytanie do bazy danych (tak jak metoda query()) i dodatkowo pobiera wartości w postaci tablicy asocjacyjnej.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$query </td>
+                                <td><p>Zapytanie SQL.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>Tablica asocjacyna zawierająca wynikowe rekordy. W przypadku poleceń nie wybierających rekordów z bazy funkcja zwraca pustą tablice.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_prepareAndExecute" name="method_prepareAndExecute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">prepareAndExecute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">prepareAndExecute(string  <span class="argument">$query</span>, array  <span class="argument">$params = array()</span>) : \wkakis\PDOStatement</pre>
+                <p><em>Przygotowuje i wykonuje zapytanie SQL. Obsługuje opcjonalne bindowanie parametrów w przypadku dodania tablicy przypisań jako drugiego argumentu.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$query </td>
+                                <td><p>Zapytanie SQL. Może zawierać bindowanie parametrów  przypadku podania tablicy przypisań jako drugiego argumentu.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Tablica przypisań (może być indexowana lub asocjacyjna).</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \wkakis\PDOStatement
+                                            &mdash; <p>Obiekt PDOStatement dla późniejszego użytku.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_select" name="method_select" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">select()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">select(array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;  <span class="argument">$options</span>, array  <span class="argument">$params = array()</span>) : array&lt;mixed,mixed&gt;</pre>
+                <p><em>Wykonuje zapytanie typu SELECT.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;</td>
+                                <td>$options </td>
+                                <td><p>Tablica asocjacyjna z opcjami zapytania SELECT.</p>
+<ul>
+<li><strong>string</strong> - $config['select']-  Nazwy kolumn.</li>
+<li><strong>string</strong> - $config['from']-  Nazwa tabeli z której pobieramy</li>
+<li><strong>string</strong> - $config['where'] -  Warunek where polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['having'] -  Warunek having polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['order'] -  Warunek order polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['limit'] -  Warunek limit polecenia SQL (sprawdz dokumentacje).</li>
+</ul></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Opcjonalna tablica indexowana z parametrami dla poleceń prepared statements.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array&lt;mixed,mixed&gt;
+                                            &mdash; <p>Tablica asocjacyjna zawierajaca rekordy tabeli.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://dev.mysql.com/doc/refman/5.7/en/select.html"><span class="namespace-wrapper">Dokumentacja polecenia SELECT.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_update" name="method_update" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">update()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">update(array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;  <span class="argument">$options</span>, array  <span class="argument">$params = array()</span>) : \wkakis\PDOStatement</pre>
+                <p><em>Wykonuje zapytanie typu UPDATE.</em></p>
+                <pre><code class="language-php">$db = new Database($dbconfig);
+$db-&gt;update(array(
+    'update'=&gt; 'table',
+    'set'=&gt; array(
+        'column1'=&gt; 'value',
+        'column2'=&gt; 37
+    ),
+    'where'=&gt; 'id=5'
+));</code></pre>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;</td>
+                                <td>$options </td>
+                                <td><p>Tablica asocjacyjna z opcjami zapytania UPDATE.</p>
+<ul>
+<li><strong>string</strong> - $config['update']-  Nazwa tablicy.</li>
+<li><strong>string[]</strong> - $config['set']-  Tablica asocjacyjna zawierająca przypisania pól oraz ich odpowiednich wartości.</li>
+<li><strong>string</strong> - $config['where'] -  Warunek where polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['order'] -  Warunek order polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['limit'] -  Warunek limit polecenia SQL (sprawdz dokumentacje).</li>
+</ul></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Opcjonalna tablica indexowana z parametrami dla poleceń prepared statements.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \wkakis\PDOStatement
+                                            &mdash; <p>Obiekt PDOStatement dla późniejszego użytku.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://dev.mysql.com/doc/refman/5.7/en/update.html"><span class="namespace-wrapper">Dokumentacja polecenia UPDATE.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_delete" name="method_delete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">delete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">delete(array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;  <span class="argument">$options</span>, array  <span class="argument">$params = array()</span>) : \wkakis\PDOStatement</pre>
+                <p><em>Wykonuje zapytanie typu DELETE.</em></p>
+                <pre><code class="language-php">$db = new Database($dbconfig);
+$db-&gt;delete(array(
+    'from'=&gt; 'table',
+    'where'=&gt; 'id=5'
+));</code></pre>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;</td>
+                                <td>$options </td>
+                                <td><p>Tablica asocjacyjna z opcjami zapytania DELETE.</p>
+<ul>
+<li><strong>string</strong> - $config['from']-  Nazwa tablicy.</li>
+<li><strong>string</strong> - $config['where'] -  Warunek where polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['order'] -  Warunek order polecenia SQL (sprawdz dokumentacje).</li>
+<li><strong>string</strong> - $config['limit'] -  Warunek limit polecenia SQL (sprawdz dokumentacje).</li>
+</ul></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>Opcjonalna tablica indexowana z parametrami dla poleceń prepared statements.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \wkakis\PDOStatement
+                                            &mdash; <p>Obiekt PDOStatement dla późniejszego użytku.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://dev.mysql.com/doc/refman/5.7/en/delete.html"><span class="namespace-wrapper">Dokumentacja polecenia DELETE.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_insert" name="method_insert" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">insert()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">insert(array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;  <span class="argument">$options</span>) : \wkakis\PDOStatement</pre>
+                <p><em>Wykonuje zapytanie typu INSERT.</em></p>
+                <pre><code class="language-php">$db = new Database($dbconfig);
+$db-&gt;insert(array(
+    'into'=&gt; 'table',
+    'values'=&gt; array(
+        'column1'=&gt;'value1',
+        'column2'=&gt;'value2',
+        'column3'=&gt; 3
+    )
+));</code></pre>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,integer&gt;|array&lt;mixed,string&gt;</td>
+                                <td>$options </td>
+                                <td><p>Tablica asocjacyjna z opcjami zapytania INSERT.</p>
+<ul>
+<li><strong>string</strong> - $config['into']-  Nazwa tablicy.</li>
+<li><strong>string</strong> - $config['values']-  Tablica asocjacyjna z wprowadzanymi polami.</li>
+</ul></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \wkakis\PDOStatement
+                                            &mdash; <p>Obiekt PDOStatement dla późniejszego użytku.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href="https://dev.mysql.com/doc/refman/5.7/en/insert.html"><span class="namespace-wrapper">Dokumentacja polecenia INSERT.</span></a></dd>
+                                                                </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_completeQuery" name="method_completeQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">completeQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">completeQuery(array&lt;mixed,string&gt;  <span class="argument">$options</span>, array&lt;mixed,string&gt;  <span class="argument">$queryCompletions</span>) : string</pre>
+                <p><em>Tworzy dopełnienie zapytania SQL poprzez warunki przekazane w tablicy. Pozwalana na zachowanie poprawnej kolejnosci warunków oraz filtruje według tablicy $queryCompletions.</em></p>
+                <pre><code class="language-php">$queryCompletions = array(
+    'where'=&gt; ' WHERE ',
+    'group'=&gt; ' GROUP BY ',
+    'having'=&gt; ' HAVING ',
+    'order'=&gt; ' ORDER BY ',
+    'limit'=&gt; ' LIMIT '
+);
+
+$options = array(
+    'select'=&gt; '*',
+    'from'=&gt; 'table',
+    'where'=&gt; 'column=5',
+    'group'=&gt; 'column2',
+    'order'=&gt; 'id DESC',
+    'limit'=&gt; 21
+);
+
+$db = new Database($dbconfig);
+
+echo $db-&gt;prepareAndExecute($options, $queryCompletions);
+// 'WHERE column=5 GROUP BY column2 ORDER BY id desc LIMIT 21'</code></pre>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,string&gt;</td>
+                                <td>$options </td>
+                                <td><p>Opcje zapytania SQL z możliwymi dopełnieniami.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>array&lt;mixed,string&gt;</td>
+                                <td>$queryCompletions </td>
+                                <td><p>Asocjacyjna tablica dopełnień.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>Dopełnienie do zapytania SQL.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Database.class.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/lib/Database.class.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/wkakis.html">\wkakis</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on October 17th, 2017 at 20:19.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
